@@ -34,23 +34,24 @@ window.onload = function () {
         // Indicamos el tipo de dato
         dataType: "json",
         // Indicamos la función que recupera los datos de la api
-        success: function(datos){
+        success: function (datos) {
             let datosAPI = datos.serie;
-            for(let i=0; i < datosAPI.length; i++){
+            for (let i = 0; i < datosAPI.length; i++) {
                 dataPoints.push({
                     // Para cada iteración traemos la fecha
                     x: new Date(datosAPI[i].fecha),
                     y: datosAPI[i].valor,
                 });
             }
+            chart.render();
         },
         // Agregamos error en caso de que la api no responda correctamente
-        error: function(error){
+        error: function (error) {
             console.log(error);
         }
     });
 
-    chart.render();
+
 };
 
 
